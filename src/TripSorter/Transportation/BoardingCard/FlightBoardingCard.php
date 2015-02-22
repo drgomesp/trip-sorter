@@ -12,6 +12,11 @@ class FlightBoardingCard extends AbstractBoardingCard implements FlightBoardingC
     /**
      * @var string
      */
+    protected $flight;
+
+    /**
+     * @var string
+     */
     protected $gate;
 
     /**
@@ -27,19 +32,22 @@ class FlightBoardingCard extends AbstractBoardingCard implements FlightBoardingC
     /**
      * @param \TripSorter\Destination\DestinationInterface $from
      * @param \TripSorter\Destination\DestinationInterface $to
-     * @param $gate
-     * @param $seat
-     * @param $luggageInformation
+     * @param string $flight
+     * @param string $gate
+     * @param string $seat
+     * @param string $luggageInformation
      */
     public function __construct(
         DestinationInterface $from,
         DestinationInterface $to,
+        $flight,
         $gate,
         $seat,
         $luggageInformation
     ) {
-        $this->gate = $gate;
-        $this->seat = $seat;
+        $this->flight             = $flight;
+        $this->gate               = $gate;
+        $this->seat               = $seat;
         $this->luggageInformation = $luggageInformation;
 
         parent::__construct($from, $to);
@@ -50,6 +58,14 @@ class FlightBoardingCard extends AbstractBoardingCard implements FlightBoardingC
      */
     public function __toString()
     {
-        return sprintf("Something goes here...");
+        return sprintf(
+            "From %s, take flight %s to %s (Gate %s, seat %s). %s",
+            $this->from,
+            $this->flight,
+            $this->to,
+            $this->gate,
+            $this->seat,
+            $this->luggageInformation
+        );
     }
 }
