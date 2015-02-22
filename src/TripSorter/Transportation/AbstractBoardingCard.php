@@ -4,7 +4,7 @@ namespace TripSorter\Transportation;
 
 use TripSorter\Destination\DestinationInterface;
 
-class BoardingCard implements BoardingCardInterface
+abstract class AbstractBoardingCard implements BoardingCardInterface
 {
     /**
      * @var \TripSorter\Destination\DestinationInterface
@@ -25,4 +25,11 @@ class BoardingCard implements BoardingCardInterface
         $this->from = $from;
         $this->to   = $to;
     }
+
+    /**
+     * Prints out the boarding card in a human-readable form.
+     *
+     * @return string
+     */
+    abstract public function __toString();
 }
