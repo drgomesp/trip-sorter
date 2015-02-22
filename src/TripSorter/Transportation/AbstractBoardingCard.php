@@ -27,6 +27,22 @@ abstract class AbstractBoardingCard implements BoardingCardInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function getFrom()
+    {
+        return $this->from;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getTo()
+    {
+        return $this->to;
+    }
+
+    /**
      * Prints out the boarding card in a human-readable form.
      *
      * @return string
