@@ -17,6 +17,9 @@ class Destination implements DestinationInterface
         $this->name = $name;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function __toString()
     {
         return (string) $this->name;
