@@ -30,12 +30,7 @@ class FlightBoardingCard extends AbstractBoardingCard implements FlightBoardingC
     protected $luggageInformation;
 
     /**
-     * @param \TripSorter\Destination\DestinationInterface $from
-     * @param \TripSorter\Destination\DestinationInterface $to
-     * @param string $flight
-     * @param string $gate
-     * @param string $seat
-     * @param string $luggageInformation
+     * {@inheritdoc}
      */
     public function __construct(
         DestinationInterface $from,
