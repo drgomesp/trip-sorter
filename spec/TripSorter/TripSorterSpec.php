@@ -50,6 +50,7 @@ class TripSorterSpec extends ObjectBehavior
         $to4->__toString()->willReturn("New York JFK");
 
         // let's strip the invalid cards from the sorted array as well as sorting it
+        $this->sort([$card4, $card3, $card2, "foo", $card1])->shouldBe([$card1, $card2, $card3, $card4]);
         $this->sort([$card3, $card1, $card4, "foo", $card2])->shouldBe([$card1, $card2, $card3, $card4]);
     }
 }

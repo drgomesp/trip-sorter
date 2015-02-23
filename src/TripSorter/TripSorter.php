@@ -19,11 +19,12 @@ class TripSorter
 
                 if (end($sorted)->getTo()->__toString() === $card->getFrom()->__toString()) {
                     array_push($sorted, $card);
+                     unset($boardingCards[$key]);
+
                 } elseif (reset($sorted)->getFrom()->__toString() === $card->getTo()->__toString()) {
                     array_unshift($sorted, $card);
+                    unset($boardingCards[$key]);
                 }
-
-                unset($boardingCards[$key]);
             }
         }
 
